@@ -1,6 +1,6 @@
 #!/bin/bash
 # バックアップフォルダにファイルをコピーするコマンド
-# 
+#
 
 if [ ! -e $1 ]; then
     echo $ファイルが見つかりません。
@@ -9,9 +9,9 @@ fi
 
 if [ -n "$SELFBACKUPDIR" ]; then
     $SELFBACKUPDIR=~/backup
-fi    
-if [ -e "$SELFBACKUPDIR" ]; then
-   mkdir ~/backup
+fi
+if [ ! -e "$SELFBACKUPDIR" ]; then
+   mkdir $SELFBACKUPDIR
 fi
 
 file_path=$1
@@ -19,11 +19,9 @@ abs_path=$(cd $(dirname $file_path); pwd)/$(basename $file_path)
 
 # ファイルの場合
 if [ -f $abs_path ]; then
-    cp -p --parents $abs_path ~/backup
+    cp -p --parents $abs_path $SELFBACKUPDIR
 fi
 
 if [ -d $abs_path ]; then
-    cp -pr --parents $abs_path ~/backup
+    cp -pr --parents $abs_path $SELFBACKUPDIR
 fi
-    
-
