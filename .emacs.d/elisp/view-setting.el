@@ -17,7 +17,7 @@
   '((((class color) (background dark t))
     (:background "#191970"))
    (((class color) (background light t))
-    (:background "#f8b500"))
+    (:background "#191970"))
    (t (:bold t)))
   "hl-line's my face")
 (setq hl-line-face 'my-hl-line-face)
