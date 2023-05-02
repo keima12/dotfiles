@@ -7,7 +7,7 @@ if [ ! -e $1 ]; then
     exit
 fi
 
-if [ "{$SELFBACKUPDIR+foo}" ]; then
+if [ -z "$SELFBACKUPDIR" ]; then
     SELFBACKUPDIR=~/backup
 fi
 if [ ! -e $SELFBACKUPDIR ]; then
